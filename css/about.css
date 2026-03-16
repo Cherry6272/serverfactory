@@ -1,0 +1,143 @@
+
+/* About Us Section */
+.about-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Header Section */
+.about-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-header h1 {
+    font-size: 2.5rem;
+    color: #109810;
+}
+
+.about-header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Content Section */
+.about-content {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    align-items: center;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Values Section */
+.about-values {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.about-values h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #000000;
+}
+
+.values-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: center;
+}
+
+.value {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(25% - 20px); /* Adjust flex item size for responsiveness */
+    text-align: center;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.value h3 {
+    font-size: 1.5rem;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.value p {
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-header h1 {
+        font-size: 2rem;
+    }
+
+    .about-header p {
+        font-size: 1rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-values h2 {
+        font-size: 1.8rem;
+    }
+
+    .value {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 576px) {
+    .about-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .about-header p {
+        font-size: 0.9rem;
+    }
+
+    .value {
+        flex: 1 1 100%;
+    }
+
+    .about-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-text p {
+        font-size: 0.9rem;
+    }
+}

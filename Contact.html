@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Factory</title>
+    <link rel="icon" type="image/x-icon" href="logo1.png">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/contact.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <!-- EmailJS Script -->
+</head>
+
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const navLinks = document.querySelector(".Nav_links ul");
+            const toggleButton = document.querySelector(".Nav_toggle");
+
+            toggleButton.addEventListener("click", () => {
+                navLinks.classList.toggle("show");
+            });
+        });
+
+        // Initialize EmailJS
+        (function () {
+            emailjs.init("-vGUTkTNG20PZ86uf");  // Replace with your EmailJS user ID
+        })();
+
+        // Handle the form submission
+        function sendEmail(event) {
+            event.preventDefault();  // Prevent default form submission
+
+            // Collect form data
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+
+            // Send the email using EmailJS
+            emailjs.send("service_iliqfyt", "template_andxoww", {
+                name: name,
+                email: email,
+                message: message
+            }).then(function (response) {
+                console.log("Success", response);
+                alert("Your message has been sent successfully!");
+                // Optionally, reset the form
+                document.getElementById("contact-form").reset();
+            }).catch(function (error) {
+                console.log("Error", error);
+                alert("Sorry, something went wrong. Please try again later.");
+            });
+        }
+    </script>
+
+    <!-- NavBar -->
+    <nav class="Nav_container">
+        <div class="Nav_logo">
+            <a href="index.html"><img src="./logo1.png" alt="Logo"></a>
+        </div>
+        <div class="Nav_toggle">
+            <span>&#9776;</span>
+        </div>
+        <div class="Nav_links">
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./servers.html">Servers</a></li>
+                <li><a href="./workstations.html">Workstations</a></li>
+                <li><a href="./components.html">Components</a></li>
+                <li><a href="./About.html">About</a></li>
+                <li><a href="./Contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Form -->
+    <div class="contact-container">
+        <div class="contact-header">
+            <h1>Contact Us</h1>
+            <p>Have questions or need help? We're here for you. Reach out to us!</p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-form">
+                <h2>Get in Touch</h2>
+                <form id="contact-form" onsubmit="sendEmail(event)">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p><strong>Address:</strong> 1234 Main Street, Your City, Your Country</p>
+                <p><strong>Phone:</strong> +1 234 567 890</p>
+                <p><strong>Email:</strong> support@yourcompany.com</p>
+                <p><strong>Working Hours:</strong> Monday - Friday, 9:00 AM - 6:00 PM</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-main">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>We provide exceptional solutions tailored to meet your needs. Trusted by businesses worldwide.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./servers.html">Servers</a></li>
+                    <li><a href="./workstations.html">Workstations</a></li>
+                    <li><a href="./components.html">Components</a></li>
+                    <li><a href="./About.html">About</a></li>
+                    <li><a href="./Contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="icon">Facebook</a>
+                    <a href="#" class="icon">Twitter</a>
+                    <a href="#" class="icon">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+
+</html>
