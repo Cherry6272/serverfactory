@@ -90,7 +90,7 @@
                         <li>Dell PowerEdge R750</li>
                         <li>Base Configuration</li><li>High-Speed Networking Ready</li><li>Storage Optimized</li>
                     </ul>
-                    <div class="plan-footer"><button class="buy-btn">BUY NOW</button></div>
+                    <div class="plan-footer"><button class="buy-btn" onclick="openBuyModal('Dell PowerEdge R750', 'Budget')">BUY NOW</button></div>
                 </div>
                 <div class="comparison-card">
                     <div class="plan-header"><h3>Business</h3></div>
@@ -99,7 +99,7 @@
                         <li>Dell PowerEdge R750</li>
                         <li>Virtualization Focused</li><li>Increased RAM Capacity</li><li>Redundant Power</li>
                     </ul>
-                    <div class="plan-footer"><button class="buy-btn">BUY NOW</button></div>
+                    <div class="plan-footer"><button class="buy-btn" onclick="openBuyModal('Dell PowerEdge R750', 'Business')">BUY NOW</button></div>
                 </div>
                 <div class="comparison-card">
                     <div class="plan-header"><h3>Enterprise</h3></div>
@@ -108,10 +108,65 @@
                         <li>Dell PowerEdge R750</li>
                         <li>Mission Critical Ready</li><li>Maximum Scalability</li><li>Next-Gen PCIe Gen4 Support</li>
                     </ul>
-                    <div class="plan-footer"><button class="buy-btn">BUY NOW</button></div>
+                    <div class="plan-footer"><button class="buy-btn" onclick="openBuyModal('Dell PowerEdge R750', 'Enterprise')">BUY NOW</button></div>
                 </div>
             </div>
         </div>
+
+        <div id="buy-modal" class="modal-overlay">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeBuyModal()">&times;</span>
+                <h3>Choose Ordering Method</h3>
+                <p id="modal-product-info" style="margin-bottom: 20px; color: #666; font-size: 0.9rem;"></p>
+                <div class="contact-options">
+                    <a href="#" id="wa-link" class="contact-btn whatsapp" target="_blank">
+                        <i>✆</i> WhatsApp
+                    </a>
+                    <a href="#" id="mail-link" class="contact-btn email">
+                        <i>✉</i> Email
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let currentProduct = '';
+            let currentTier = '';
+
+            function openBuyModal(name, tier) {
+                currentProduct = name;
+                currentTier = tier;
+                const modal = document.getElementById('buy-modal');
+                const infoText = document.getElementById('modal-product-info');
+                const waLink = document.getElementById('wa-link');
+                const mailLink = document.getElementById('mail-link');
+
+                infoText.innerText = name + ' - ' + tier + ' Edition';
+                
+                // WhatsApp Link
+                const waMessage = encodeURIComponent("Hi, I'm interested in the " + name + " (" + tier + " Edition). Please provide more details.");
+                waLink.href = "https://wa.me/9916048404?text=" + waMessage;
+
+                // Email Link
+                const mailSubject = encodeURIComponent("Enquiry for " + name + " - " + tier);
+                const mailBody = encodeURIComponent("I'm interested in ordering the " + name + " " + tier + " configuration.");
+                mailLink.href = "mailto:bytechiptech@gmail.com?subject=" + mailSubject + "&body=" + mailBody;
+
+                modal.style.display = 'flex';
+            }
+
+            function closeBuyModal() {
+                document.getElementById('buy-modal').style.display = 'none';
+            }
+
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                const modal = document.getElementById('buy-modal');
+                if (event.target == modal) {
+                    closeBuyModal();
+                }
+            }
+        </script>
 
         
         <div class="additional-info" style="margin-top: 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">

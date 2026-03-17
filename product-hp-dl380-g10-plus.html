@@ -90,7 +90,7 @@
                         <li>HP ProLiant DL380 G10 Plus</li>
                         <li>Standard Configuration</li><li>Reliable Performance</li>
                     </ul>
-                    <div class="plan-footer"><button class="buy-btn">BUY NOW</button></div>
+                    <div class="plan-footer"><button class="buy-btn" onclick="openBuyModal('HP ProLiant DL380 G10 Plus', 'Budget')">BUY NOW</button></div>
                 </div>
                 <div class="comparison-card">
                     <div class="plan-header"><h3>Business</h3></div>
@@ -99,7 +99,7 @@
                         <li>HP ProLiant DL380 G10 Plus</li>
                         <li>Optimized Configuration</li><li>High Throughput</li>
                     </ul>
-                    <div class="plan-footer"><button class="buy-btn">BUY NOW</button></div>
+                    <div class="plan-footer"><button class="buy-btn" onclick="openBuyModal('HP ProLiant DL380 G10 Plus', 'Business')">BUY NOW</button></div>
                 </div>
                 <div class="comparison-card">
                     <div class="plan-header"><h3>Enterprise</h3></div>
@@ -108,10 +108,65 @@
                         <li>HP ProLiant DL380 G10 Plus</li>
                         <li>Premium Configuration</li><li>Maximum Reliability</li>
                     </ul>
-                    <div class="plan-footer"><button class="buy-btn">BUY NOW</button></div>
+                    <div class="plan-footer"><button class="buy-btn" onclick="openBuyModal('HP ProLiant DL380 G10 Plus', 'Enterprise')">BUY NOW</button></div>
                 </div>
             </div>
         </div>
+
+        <div id="buy-modal" class="modal-overlay">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeBuyModal()">&times;</span>
+                <h3>Choose Ordering Method</h3>
+                <p id="modal-product-info" style="margin-bottom: 20px; color: #666; font-size: 0.9rem;"></p>
+                <div class="contact-options">
+                    <a href="#" id="wa-link" class="contact-btn whatsapp" target="_blank">
+                        <i>✆</i> WhatsApp
+                    </a>
+                    <a href="#" id="mail-link" class="contact-btn email">
+                        <i>✉</i> Email
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let currentProduct = '';
+            let currentTier = '';
+
+            function openBuyModal(name, tier) {
+                currentProduct = name;
+                currentTier = tier;
+                const modal = document.getElementById('buy-modal');
+                const infoText = document.getElementById('modal-product-info');
+                const waLink = document.getElementById('wa-link');
+                const mailLink = document.getElementById('mail-link');
+
+                infoText.innerText = name + ' - ' + tier + ' Edition';
+                
+                // WhatsApp Link
+                const waMessage = encodeURIComponent("Hi, I'm interested in the " + name + " (" + tier + " Edition). Please provide more details.");
+                waLink.href = "https://wa.me/9916048404?text=" + waMessage;
+
+                // Email Link
+                const mailSubject = encodeURIComponent("Enquiry for " + name + " - " + tier);
+                const mailBody = encodeURIComponent("I'm interested in ordering the " + name + " " + tier + " configuration.");
+                mailLink.href = "mailto:bytechiptech@gmail.com?subject=" + mailSubject + "&body=" + mailBody;
+
+                modal.style.display = 'flex';
+            }
+
+            function closeBuyModal() {
+                document.getElementById('buy-modal').style.display = 'none';
+            }
+
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                const modal = document.getElementById('buy-modal');
+                if (event.target == modal) {
+                    closeBuyModal();
+                }
+            }
+        </script>
 
         
 

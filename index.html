@@ -11,6 +11,7 @@
        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
               rel="stylesheet">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 </head>
 
@@ -66,27 +67,82 @@
        <!-- home slides -->
 
        <div class="main-homepitcure">
-              <div class="sub-homepicture">
-                     <img class="home-pic" src="./bg4.jpg" alt="back image">
-                     <div class="overlay-text">
-                            <h1>Welcome to Server Factory</h1>
-                            <p>Your One-Stop Solution for High-Performance Servers, Components, and Custom IT Solutions.
-                            </p>
-                            <p>From powerful rackmount servers to cutting-edge liquid cooling systems, we design
-                                   technology to keep your business ahead of the curve.</p>
-                            <button class="learn-more-btn">Learn More</button>
+              <div class="hero-slider">
+                     <!-- Slide 1: Welcome -->
+                     <div class="hero-slide active">
+                            <img src="./bg4.jpg" alt="Welcome to Server Factory">
+                            <div class="hero-overlay">
+                                   <div class="hero-badge">Expert IT Solutions</div>
+                                   <h1>Welcome to Server Factory</h1>
+                                   <p>Your Premier Destination for Enterprise-Grade Servers, High-End Workstations, and Cutting-Edge Components.</p>
+                                   <div class="hero-features">
+                                          <span><i class="fas fa-check"></i> Premium Services</span>
+                                          <span><i class="fas fa-check"></i> Best Price Guarantee</span>
+                                          <span><i class="fas fa-check"></i> 24/7 Expert Support</span>
+                                   </div>
+                                   <a href="./About.html" class="hero-btn">Discover Our Story</a>
+                            </div>
+                     </div>
+                     <!-- Slide 2: Dell R640 -->
+                     <div class="hero-slide">
+                            <img src="assets/productimages/Dell-PowerEdge-R640-Server.webp" alt="Dell PowerEdge R640">
+                            <div class="hero-overlay">
+                                   <div class="hero-badge">Top Seller</div>
+                                   <h1>Dell PowerEdge R640</h1>
+                                   <p>Ultimate performance and density. Optimized for your most demanding enterprise workloads.</p>
+                                   <div class="hero-tagline">Premium Reliability | Best Prices Available</div>
+                                   <a href="product-dell-r640.html" class="hero-btn">Explore Now</a>
+                            </div>
+                     </div>
+                     <!-- Slide 3: HP Z8 G4 -->
+                     <div class="hero-slide">
+                            <img src="assets/productimages/HP-Z8-G4-Tower-Workstation.webp" alt="HP Z8 G4">
+                            <div class="hero-overlay">
+                                   <div class="hero-badge">Extreme Power</div>
+                                   <h1>HP Z8 G4 Workstation</h1>
+                                   <p>The world's most powerful desktop workstation. Designed for complex simulations and massive data sets.</p>
+                                   <div class="hero-tagline">Unlimited Potential | Industry-Leading Tech</div>
+                                   <a href="product-hp-z8-g4.html" class="hero-btn">Learn More</a>
+                            </div>
+                     </div>
+                     <!-- Slide 4: NVIDIA A100 -->
+                     <div class="hero-slide">
+                            <img src="./assets/storage350x200-01.png" alt="NVIDIA A100">
+                            <div class="hero-overlay">
+                                   <div class="hero-badge">AI Ready</div>
+                                   <h1>NVIDIA A100 Tensor Core</h1>
+                                   <p>Unprecedented acceleration for AI and data analytics. Powering the next generation of discovery.</p>
+                                   <div class="hero-tagline">Cutting-Edge Performance | Exceptional Value</div>
+                                   <a href="product-nvidia-a100.html" class="hero-btn">View GPU</a>
+                            </div>
+                     </div>
+                     <!-- Slide 5: Supermicro -->
+                     <div class="hero-slide">
+                             <img src="assets/cat_assets/rack350x200-01-01.png" alt="Supermicro H12DSi">
+                            <div class="hero-overlay">
+                                   <div class="hero-badge">Custom Solutions</div>
+                                   <h1>Supermicro Enterprise</h1>
+                                   <p>Specialized server solutions with advanced liquid cooling. Tailored to your business needs.</p>
+                                   <div class="hero-tagline">Premium Innovation | Unbeatable Service</div>
+                                   <a href="product-supermicro-h12dsi.html" class="hero-btn">See Details</a>
+                            </div>
+                     </div>
+
+                     <!-- Navigation -->
+                     <button class="hero-arrow hero-prev">&lsaquo;</button>
+                     <button class="hero-arrow hero-next">&rsaquo;</button>
+                     
+                     <div class="hero-nav">
+                            <div class="hero-dot active"></div>
+                            <div class="hero-dot"></div>
+                            <div class="hero-dot"></div>
+                            <div class="hero-dot"></div>
+                            <div class="hero-dot"></div>
                      </div>
               </div>
        </div>
 
-
-
-
-
-
-
-
-
+       <script src="./Js/hero-slider.js"></script>
 
        <!-- ads -->
        <div class="ad-main">
@@ -123,7 +179,8 @@
                             <div class="slider-track">
                                    <div class="slider-item">
                                           <div class="slider-card">
-                                                 <img src="assets/productimages/Dell-PowerEdge-R740-Server-1.webp" alt="Dell R740">
+                                                 <img src="assets/productimages/Dell-PowerEdge-R740-Server-1.webp"
+                                                        alt="Dell R740">
                                                  <h3>Dell PowerEdge R740</h3>
                                                  <p>Scalable 2U rack server with up to two Intel Xeon Scalable
                                                         processors and 24 DDR4 DIMMs for high-performance workloads.</p>
@@ -151,22 +208,65 @@
                                    </div>
                                    <div class="slider-item">
                                           <div class="slider-card">
-                                                 <img src="assets/productimages/Dell-PowerEdge-R630-Server.webp" alt="Dell R630">
+                                                 <img src="assets/productimages/Dell-PowerEdge-R630-Server.webp"
+                                                        alt="Dell R630">
                                                  <h3>Dell PowerEdge R630</h3>
                                                  <p>Ultra-dense 1U performance with dual-socket power, optimized for
                                                         cloud environments and large-scale data center deployment.</p>
                                                  <a href="product-dell-r630.html">View Details</a>
                                           </div>
                                    </div>
-                                   <div class="slider-item">
-                                          <div class="slider-card">
-                                                 <img src="assets/productimages/HPE-ProLiant-DL380-G10-Server.webp" alt="HP DL380 G10">
-                                                 <h3>HP ProLiant DL380 G10</h3>
-                                                 <p>The industry's most secure 2U server, offering a versatile balance
-                                                        of compute and storage for modern business applications.</p>
-                                                 <a href="product-hp-dl380-g10.html">View Details</a>
-                                          </div>
-                                   </div>
+                                    <div class="slider-item">
+                                           <div class="slider-card">
+                                                  <img src="assets/productimages/HPE-ProLiant-DL380-G10-Server.webp"
+                                                         alt="HP DL380 G10">
+                                                  <h3>HP ProLiant DL380 G10</h3>
+                                                  <p>The industry's most secure 2U server, offering a versatile balance
+                                                         of compute and storage for modern business applications.</p>
+                                                  <a href="product-hp-dl380-g10.html">View Details</a>
+                                           </div>
+                                    </div>
+                                    <!-- New Products -->
+                                    <div class="slider-item">
+                                           <div class="slider-card">
+                                                  <img src="assets/productimages/Dell-PowerEdge-R640-Server.webp" alt="Dell R640">
+                                                  <h3>Dell PowerEdge R640</h3>
+                                                  <p>Compact 1U rack server providing high density and scalability for demanding enterprise data centers.</p>
+                                                  <a href="product-dell-r640.html">View Details</a>
+                                           </div>
+                                    </div>
+                                    <div class="slider-item">
+                                           <div class="slider-card">
+                                                  <img src="assets/productimages/HP-Z4-G4-Tower-Workstation.webp" alt="HP Z4 G4">
+                                                  <h3>HP Z4 G4 Workstation</h3>
+                                                  <p>HP's most popular workstation, providing high-performance processing for engineering and visualization.</p>
+                                                  <a href="product-hp-z4-g4.html">View Details</a>
+                                           </div>
+                                    </div>
+                                    <div class="slider-item">
+                                           <div class="slider-card">
+                                                  <img src="assets/cat_assets/rack350x200-01-01.png" alt="Supermicro H12DSi">
+                                                  <h3>Supermicro H12DSi</h3>
+                                                  <p>Advanced dual-socket motherboard supporting AMD EPYC processors for high-throughput computing.</p>
+                                                  <a href="product-supermicro-h12dsi.html">View Details</a>
+                                           </div>
+                                    </div>
+                                    <div class="slider-item">
+                                           <div class="slider-card">
+                                                  <img src="assets/productimages/Dell-Precision-T7910-Tower-Workstation.webp" alt="Dell T7910">
+                                                  <h3>Dell Precision T7910</h3>
+                                                  <p>Scalable tower workstation with dual-processor performance for complex 3D rendering and simulation.</p>
+                                                  <a href="product-dell-t7910.html">View Details</a>
+                                           </div>
+                                    </div>
+                                    <div class="slider-item">
+                                           <div class="slider-card">
+                                                  <img src="assets/cat_assets/workstation350x200-01.png" alt="Lenovo P920">
+                                                  <h3>Lenovo ThinkStation P920</h3>
+                                                  <p>Powerful dual-processor workstation designed for mission-critical tasks and massive datasets.</p>
+                                                  <a href="product-lenovo-p920.html">View Details</a>
+                                           </div>
+                                    </div>
                             </div>
                      </div>
                      <button class="slider-btn next">&gt;</button>

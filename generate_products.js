@@ -2,35 +2,35 @@ const fs = require('fs');
 const path = require('path');
 
 const servers = [
-    { name: 'Dell PowerEdge R630', slug: 'dell-r630', brand: 'Dell', form: '1U Rack' },
-    { name: 'Dell PowerEdge R640', slug: 'dell-r640', brand: 'Dell', form: '1U Rack' },
-    { name: 'Dell PowerEdge R730', slug: 'dell-r730', brand: 'Dell', form: '2U Rack' },
-    { name: 'Dell PowerEdge R730xd', slug: 'dell-r730xd', brand: 'Dell', form: '2U Rack' },
-    { name: 'Dell PowerEdge R740', slug: 'dell-r740', brand: 'Dell', form: '2U Rack' },
-    { name: 'Dell PowerEdge R740xd', slug: 'dell-r740xd', brand: 'Dell', form: '2U Rack' },
-    { name: 'Dell PowerEdge R650', slug: 'dell-r650', brand: 'Dell', form: '1U Rack' },
-    { name: 'Dell PowerEdge R750', slug: 'dell-r750', brand: 'Dell', form: '2U Rack' },
-    { name: 'HP ProLiant DL360 G9', slug: 'hp-dl360-g9', brand: 'HP', form: '1U Rack' },
-    { name: 'HP ProLiant DL380 G9', slug: 'hp-dl380-g9', brand: 'HP', form: '2U Rack' },
-    { name: 'HP ProLiant DL360 G10', slug: 'hp-dl360-g10', brand: 'HP', form: '1U Rack' },
-    { name: 'HP ProLiant DL380 G10', slug: 'hp-dl380-g10', brand: 'HP', form: '2U Rack' },
-    { name: 'HP ProLiant DL380 G10 Plus', slug: 'hp-dl380-g10-plus', brand: 'HP', form: '2U Rack' }
+    { name: 'Dell PowerEdge R630', slug: 'dell-r630', brand: 'Dell', form: '1U Rack', image: 'assets/productimages/Dell-PowerEdge-R630-Server.webp' },
+    { name: 'Dell PowerEdge R640', slug: 'dell-r640', brand: 'Dell', form: '1U Rack', image: 'assets/productimages/Dell-PowerEdge-R640-Server.webp' },
+    { name: 'Dell PowerEdge R730', slug: 'dell-r730', brand: 'Dell', form: '2U Rack', image: 'assets/productimages/Dell-PowerEdge-R730-Server.webp' },
+    { name: 'Dell PowerEdge R730xd', slug: 'dell-r730xd', brand: 'Dell', form: '2U Rack', image: 'assets/productimages/Dell-PowerEdge-R730xd-Server.webp' },
+    { name: 'Dell PowerEdge R740', slug: 'dell-r740', brand: 'Dell', form: '2U Rack', image: 'assets/productimages/Dell-PowerEdge-R740-Server-1.webp' },
+    { name: 'Dell PowerEdge R740xd', slug: 'dell-r740xd', brand: 'Dell', form: '2U Rack', image: 'assets/productimages/Dell-EMC-PowerEdge-R740xd-Server.webp' },
+    { name: 'Dell PowerEdge R650', slug: 'dell-r650', brand: 'Dell', form: '1U Rack', image: 'assets/productimages/Dell-PowerEdge-R650-Server.webp' },
+    { name: 'Dell PowerEdge R750', slug: 'dell-r750', brand: 'Dell', form: '2U Rack', image: 'assets/productimages/Dell-PowerEdge-R750-Server.webp' },
+    { name: 'HP ProLiant DL360 G9', slug: 'hp-dl360-g9', brand: 'HP', form: '1U Rack', image: 'assets/productimages/HP-ProLiant-DL360-G9-Server.webp' },
+    { name: 'HP ProLiant DL380 G9', slug: 'hp-dl380-g9', brand: 'HP', form: '2U Rack', image: 'assets/productimages/HPE-ProLiant-DL380-G9-Server.webp' },
+    { name: 'HP ProLiant DL360 G10', slug: 'hp-dl360-g10', brand: 'HP', form: '1U Rack', image: 'assets/productimages/HPE-ProLiant-DL360-G10-Server.webp' },
+    { name: 'HP ProLiant DL380 G10', slug: 'hp-dl380-g10', brand: 'HP', form: '2U Rack', image: 'assets/productimages/HPE-ProLiant-DL380-G10-Server.webp' },
+    { name: 'HP ProLiant DL380 G10 Plus', slug: 'hp-dl380-g10-plus', brand: 'HP', form: '2U Rack', image: 'assets/productimages/HPE-ProLiant-DL380-G10-Server.webp' }
 ];
 
 const workstations = [
-    { name: 'HP Z440 Workstation', slug: 'hp-z440', brand: 'HP', type: 'Tower' },
-    { name: 'HP Z640 Workstation', slug: 'hp-z640', brand: 'HP', type: 'Tower' },
-    { name: 'HP Z840 Workstation', slug: 'hp-z840', brand: 'HP', type: 'Tower' },
-    { name: 'HP Z4 G4 Workstation', slug: 'hp-z4-g4', brand: 'HP', type: 'Tower' },
-    { name: 'HP Z6 G4 Workstation', slug: 'hp-z6-g4', brand: 'HP', type: 'Tower' },
-    { name: 'HP Z8 G4 Workstation', slug: 'hp-z8-g4', brand: 'HP', type: 'Tower' },
-    { name: 'Dell Precision T5810', slug: 'dell-t5810', brand: 'Dell', type: 'Tower' },
-    { name: 'Dell Precision T7810', slug: 'dell-t7810', brand: 'Dell', type: 'Tower' },
-    { name: 'Dell Precision T7910', slug: 'dell-t7910', brand: 'Dell', type: 'Tower' },
-    { name: 'Dell Precision T7820', slug: 'dell-t7820', brand: 'Dell', type: 'Tower' },
-    { name: 'Dell Precision T7920', slug: 'dell-t7920', brand: 'Dell', type: 'Tower' },
-    { name: 'Lenovo ThinkStation P720', slug: 'lenovo-p720', brand: 'Lenovo', type: 'Tower' },
-    { name: 'Lenovo ThinkStation P920', slug: 'lenovo-p920', brand: 'Lenovo', type: 'Tower' }
+    { name: 'HP Z440 Workstation', slug: 'hp-z440', brand: 'HP', type: 'Tower', image: 'assets/productimages/HP-Z440-Workstation.webp' },
+    { name: 'HP Z640 Workstation', slug: 'hp-z640', brand: 'HP', type: 'Tower', image: 'assets/productimages/HP-Z640-Workstation-1.webp' },
+    { name: 'HP Z840 Workstation', slug: 'hp-z840', brand: 'HP', type: 'Tower', image: 'assets/productimages/HP-Z840-Workstation.webp' },
+    { name: 'HP Z4 G4 Workstation', slug: 'hp-z4-g4', brand: 'HP', type: 'Tower', image: 'assets/productimages/HP-Z4-G4-Tower-Workstation.webp' },
+    { name: 'HP Z6 G4 Workstation', slug: 'hp-z6-g4', brand: 'HP', type: 'Tower', image: 'assets/productimages/HP-Z6-G4-Tower-Workstation-1.webp' },
+    { name: 'HP Z8 G4 Workstation', slug: 'hp-z8-g4', brand: 'HP', type: 'Tower', image: 'assets/productimages/HP-Z8-G4-Tower-Workstation.webp' },
+    { name: 'Dell Precision T5810', slug: 'dell-t5810', brand: 'Dell', type: 'Tower', image: 'assets/productimages/Dell-Precision-T5810-Workstation.webp' },
+    { name: 'Dell Precision T7810', slug: 'dell-t7810', brand: 'Dell', type: 'Tower', image: 'assets/productimages/Dell-Precision-7810-Tower-Workstation-2.webp' },
+    { name: 'Dell Precision T7910', slug: 'dell-t7910', brand: 'Dell', type: 'Tower', image: 'assets/productimages/Dell-Precision-T7910-Tower-Workstation.webp' },
+    { name: 'Dell Precision T7820', slug: 'dell-t7820', brand: 'Dell', type: 'Tower', image: 'assets/productimages/Dell-Precision-7810-Tower-Workstation-2.webp' },
+    { name: 'Dell Precision T7920', slug: 'dell-t7920', brand: 'Dell', type: 'Tower', image: 'assets/productimages/Dell-Precision-T7910-Tower-Workstation.webp' },
+    { name: 'Lenovo ThinkStation P720', slug: 'lenovo-p720', brand: 'Lenovo', type: 'Tower', image: 'assets/cat_assets/workstation350x200-01.png' },
+    { name: 'Lenovo ThinkStation P920', slug: 'lenovo-p920', brand: 'Lenovo', type: 'Tower', image: 'assets/cat_assets/workstation350x200-01.png' }
 ];
 
 const template = (p) => `<!DOCTYPE html>
@@ -125,10 +125,65 @@ const template = (p) => `<!DOCTYPE html>
                         <li>${p.name}</li>
                         ${p.tierSpecs[tier].map(ts => `<li>${ts}</li>`).join('')}
                     </ul>
-                    <div class="plan-footer"><button class="buy-btn">BUY NOW</button></div>
+                    <div class="plan-footer"><button class="buy-btn" onclick="openBuyModal('${p.name}', '${tier}')">BUY NOW</button></div>
                 </div>`).join('')}
             </div>
         </div>
+
+        <div id="buy-modal" class="modal-overlay">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeBuyModal()">&times;</span>
+                <h3>Choose Ordering Method</h3>
+                <p id="modal-product-info" style="margin-bottom: 20px; color: #666; font-size: 0.9rem;"></p>
+                <div class="contact-options">
+                    <a href="#" id="wa-link" class="contact-btn whatsapp" target="_blank">
+                        <i>✆</i> WhatsApp
+                    </a>
+                    <a href="#" id="mail-link" class="contact-btn email">
+                        <i>✉</i> Email
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let currentProduct = '';
+            let currentTier = '';
+
+            function openBuyModal(name, tier) {
+                currentProduct = name;
+                currentTier = tier;
+                const modal = document.getElementById('buy-modal');
+                const infoText = document.getElementById('modal-product-info');
+                const waLink = document.getElementById('wa-link');
+                const mailLink = document.getElementById('mail-link');
+
+                infoText.innerText = name + ' - ' + tier + ' Edition';
+                
+                // WhatsApp Link
+                const waMessage = encodeURIComponent("Hi, I'm interested in the " + name + " (" + tier + " Edition). Please provide more details.");
+                waLink.href = "https://wa.me/9916048404?text=" + waMessage;
+
+                // Email Link
+                const mailSubject = encodeURIComponent("Enquiry for " + name + " - " + tier);
+                const mailBody = encodeURIComponent("I'm interested in ordering the " + name + " " + tier + " configuration.");
+                mailLink.href = "mailto:bytechiptech@gmail.com?subject=" + mailSubject + "&body=" + mailBody;
+
+                modal.style.display = 'flex';
+            }
+
+            function closeBuyModal() {
+                document.getElementById('buy-modal').style.display = 'none';
+            }
+
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                const modal = document.getElementById('buy-modal');
+                if (event.target == modal) {
+                    closeBuyModal();
+                }
+            }
+        </script>
 
         ${p.additionalPoints ? `
         <div class="additional-info" style="margin-top: 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
@@ -176,11 +231,121 @@ const template = (p) => `<!DOCTYPE html>
 </body>
 </html>`;
 
+const generateListing = (title, products, listType, activePage) => {
+    const isServer = listType === 'server';
+    const isComponent = listType === 'component';
+    
+    const grid = products.map(p => {
+        const imgSrc = p.image;
+        const slug = p.slug;
+
+        // Use the first 5 specs for the mini-specs flip side
+        const miniSpecsHtml = p.specs.slice(0, 5).map(s => `<li>${s.value}</li>`).join('');
+
+        return `
+            <div class="product-card" onclick="window.location.href='./product-${slug}.html'">
+                <div class="image-flip-container">
+                    <div class="image-flip-inner">
+                        <div class="image-front">
+                            <img src="${imgSrc}" alt="${p.name}">
+                        </div>
+                        <div class="image-back">
+                            <div class="back-image-side">
+                                <img src="${imgSrc}" alt="${p.name}">
+                            </div>
+                            <div class="back-specs-side">
+                                <h4>Key Specifications</h4>
+                                <ul class="mini-specs">
+                                    ${miniSpecsHtml}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">${p.name}</h3>
+                    <p class="product-desc">${p.description.substring(0, 100)}${p.description.length > 100 ? '...' : ''}</p>
+                    <span class="product-action">View Details &rarr;</span>
+                </div>
+            </div>`;
+    }).join('');
+
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Factory - ${title}</title>
+    <link rel="icon" type="image/x-icon" href="logo1.png">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/products.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const navLinks = document.querySelector(".Nav_links ul");
+            const toggleButton = document.querySelector(".Nav_toggle");
+            toggleButton.addEventListener("click", () => {
+                navLinks.classList.toggle("show");
+            });
+        });
+    </script>
+    <nav class="Nav_container">
+        <div class="Nav_logo">
+            <a href="index.html"><img src="./logo1.png" alt="Logo"></a>
+        </div>
+        <div class="Nav_toggle">
+            <span>&#9776;</span>
+        </div>
+        <div class="Nav_links">
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./servers.html" class="${activePage === 'servers' ? 'active' : ''}">Servers</a></li>
+                <li><a href="./workstations.html" class="${activePage === 'workstations' ? 'active' : ''}">Workstations</a></li>
+                <li><a href="./components.html" class="${activePage === 'components' ? 'active' : ''}">Components</a></li>
+                <li><a href="./About.html">About</a></li>
+                <li><a href="./Contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="products-header">
+        <h1>${title}</h1>
+        <p>${isServer ? 'Explore our high-performance rackmount, storage, and specialized server solutions.' : (isComponent ? 'Premium hardware components for your enterprise infrastructure.' : 'Unlock your creative potential with our range of high-performance workstations.')}</p>
+    </div>
+    <div class="products-container">
+        <div class="products-grid">${grid}</div>
+    </div>
+    <div class="footer-main">
+        <div class="footer-content">
+            <div class="footer-section"><h3>About Us</h3><p>We provide exceptional solutions tailored to meet your needs. Trusted by businesses worldwide.</p></div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./servers.html">Servers</a></li>
+                    <li><a href="./workstations.html">Workstations</a></li>
+                    <li><a href="./components.html">Components</a></li>
+                    <li><a href="./About.html">About</a></li>
+                    <li><a href="./Contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2024 Your Company. All rights reserved.</p></div>
+    </div>
+</body>
+</html>`;
+    return html;
+};
+
 const generate = (list, isServer, isComponent) => {
+    const processedProducts = [];
     list.forEach(prod => {
         let p = {
             name: prod.name,
-            image: isServer ? './server.jpg' : (isComponent ? './assets/storage350x200-01.png' : './assets/cat_assets/workstation350x200-01.png'),
+            image: prod.image || (isServer ? './server.jpg' : (isComponent ? './assets/storage350x200-01.png' : './assets/cat_assets/workstation350x200-01.png')),
             oldPrice: '1,50,000.00',
             newPrice: '1,25,000.00',
             businessPrice: '1,45,000',
@@ -1683,8 +1848,11 @@ const generate = (list, isServer, isComponent) => {
             ];
         }
 
+        p.slug = prod.slug;
+        processedProducts.push(p);
         fs.writeFileSync(`product-${prod.slug}.html`, template(p));
     });
+    return processedProducts;
 };
 
 const components = [
@@ -1700,7 +1868,12 @@ const components = [
     { name: 'Broadcom MegaRAID 9560-16i', slug: 'broadcom-9560', brand: 'Broadcom', type: 'RAID Controller' }
 ];
 
-generate(servers, true, false);
-generate(workstations, false, false);
-generate(components, false, true);
-console.log('All product pages generated.');
+const serverData = generate(servers, true, false);
+const workstationData = generate(workstations, false, false);
+const componentData = generate(components, false, true);
+
+fs.writeFileSync('servers.html', generateListing('Enterprise Servers', serverData, 'server', 'servers'));
+fs.writeFileSync('workstations.html', generateListing('Professional Workstations', workstationData, 'workstation', 'workstations'));
+fs.writeFileSync('components.html', generateListing('Hardware Components', componentData, 'component', 'components'));
+
+console.log('All product and listing pages generated.');
